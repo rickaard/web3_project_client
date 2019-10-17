@@ -26,7 +26,6 @@ const babel = require('gulp-babel');
 // Object som lagrar sökvägar till de olika arbetsfilerna
 const files = {
     htmlPath: 'src/**/*.html',
-    phpPath: 'src/**/*.php',
     cssPath: 'src/**/*.css',
     sassPath: 'src/scss/*.scss',
     jsPath: 'src/**/*.js',
@@ -46,11 +45,6 @@ function cleanTask(cb) {
 // Kopiera HTML-filer till build-katalogen. Ladda sedan om sidan
 function copyHTML() {
     return src(files.htmlPath)
-        .pipe(dest(files.buildPath))
-        .pipe(browserSync.stream())
-}
-function copyPHP() {
-    return src(files.phpPath)
         .pipe(dest(files.buildPath))
         .pipe(browserSync.stream())
 }
@@ -107,14 +101,13 @@ function watchTask() {
     });
     watch('./src',
         series(
-            parallel(copyHTML,copyPHP,copyIMG,sassTask, jsTask),
+            parallel(copyHTML,copyIMG,sassTask, jsTask),
         )
     ).on('change', browserSync.reload);
 }
 
 exports.default = series(
     cleanTask,
-    parallel(copyHTML,copyPHP,copyIMG, jsTask,sassTask),
+    parallel(copyHTML,copyIMG, jsTask,sassTask),
     watchTask
 );
-
