@@ -2,6 +2,7 @@
 
 const coursesOutput = document.querySelector('#js--courses-output');
 const worksOutput = document.querySelector('#js--works-output');
+const webpagesOutput = document.querySelector('#js--webpages-output');
 
 const coursesAPI = 'http://localhost/web3_project/server/api/courses/'
 const worksAPI = 'http://localhost/web3_project/server/api/works/';
@@ -108,6 +109,24 @@ const fetchWebpages = () => {
     .then(resp => resp.json())
     .then(data => {
         console.log('fetched webpages',data);
+        let webpages = data.map((item, index) => {
+            return `
+            <div class="webpage-item">
+                <div class="webpage-image">
+                    <img src="${item.page_image}" alt="Bild på webappen ${item.page_title}">
+                </div>
+                <div class="webpage-info">
+                    <h4>${item.page_title}</h4>
+                    <p>${item.page_description}</p>
+                    <div class="webpage-links">
+                        <a class="btn btn-transparent" href="${item.page_url}" target="_blank">Live demo</a>
+                        ${item.page_github != "" ? `<a class="btn btn-transparent" href="${item.page_github}" target="_blank">Github</a>` : ''}
+                    </div>
+                </div>
+            </div>
+            `
+        }).join("");
+        webpagesOutput.innerHTML = webpages;
     })
     .catch(error => console.log(error))
 };

@@ -80,40 +80,17 @@ header {
     animation-duration: 1s;
     animation-iteration-count: infinite;
     animation-delay: 3s;
+    transform: translateX(-50%);
 }
 
 @keyframes bounce {
-	0% { @include transform(translateY(0));}
-	50% { @include transform(translateY(-10px));}
+    0% {bottom: 8px;}
+    50% {bottom: 15px}
 }
 
 
-// .output_content {
-//     margin: 3em 0;
-//      h2 {
-//          text-align: center;
-//          text-transform: uppercase;
-
-//          &:after {
-//            content: "";
-//            width: 3.4em;
-//            position: absolute;
-//            bottom: -3.2em;
-//            left: 50%;
-//            @include transform(translateX(-50%));
-//            background-color: $blue;
-//            height: 2px;
-//            display: inline-block;
-//          }
-//      }
-//      h6 {
-//          text-align: center;
-//          text-transform: uppercase;
-//      }
-// }
-
 .output_content {
-    margin: 3em 0;
+    margin: 4em 0;
     position: relative;
 }
 
@@ -126,7 +103,6 @@ header {
     content: "";
     width: 3.4em;
     position: absolute;
-    // bottom: -3.2em;
     top: 33px;
     left: 50%;
     @include transform(translateX(-50%));
@@ -144,9 +120,7 @@ header {
 	flex-direction: row;
 	justify-content: space-around;
 	flex-wrap: wrap;
-	/* padding: 0 4em; */
 	max-width: 1000px;
-	/* width: 100%; */
 	margin: 0 auto;
 }
 
@@ -177,11 +151,11 @@ header {
             width: 100%;
             height: 100%;
             backface-visibility: hidden;
+            padding: 1em;
         }
 
         .flip-card-front {
         background-color: #303030;
-        // color: black;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -190,7 +164,6 @@ header {
         
         .flip-card-back {
         background-color: $blue;
-        // color: white;
         transform: rotateY(180deg);
         display: flex;
         justify-content: center;
@@ -209,12 +182,46 @@ header {
             }
         }
       }
-
-
   }
+
+
+
+
+.webpages-items {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 3em auto;
+}
   
  
-  
+.webpage-item {
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	border-bottom: 2px solid;
+	padding: 2em 0;
+	justify-content: space-between;
+    .webpage-image {
+        max-width: 450px;
+        img {
+            width: 100%;
+        }
+    }
+    .webpage-info {
+        max-width: 450px;
+        .webpage-links {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+
+.webpage-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
 
   
 

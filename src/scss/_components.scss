@@ -17,6 +17,10 @@
 
 .btn-transparent {
 	background-color: transparent;
+	&:hover {
+		background-color: $primary-text-color;
+		color: $primary-bg-color;
+	}
 }
 
 .btn-blue {
