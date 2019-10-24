@@ -224,5 +224,31 @@ header {
 }
 
   
-
+.contact_wrapper {
+    width: 50%;
+    margin: 8em auto 0 auto;
+}
   
+.contact_wrapper form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1000px;
+    margin: 3em auto;
+
+    .input_wrapper {
+        width: 90%;
+        input, label {
+            width: 100%;
+            display: block;
+        }
+        input {
+            padding: 0.9em 0.3em;
+        }
+        textarea {
+            width: 100%;
+            min-height: 140px;
+            padding: 0.9em 0.3em;
+        }
+    }
+}

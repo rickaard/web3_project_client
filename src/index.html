@@ -35,7 +35,7 @@
                         en [blivande] webbutvecklare</br> från Strängnäs.</p>
                     </div>
                     <div class="presentation-cta">
-                        <a href="#contact" class="btn btn-transparent btn-blue">Kontakta mig</a>
+                        <a href="#contact-section" class="btn btn-transparent btn-blue">Kontakta mig</a>
                     </div>
                 </section>
                 <div class="scroll-down-icon">
@@ -45,7 +45,7 @@
            
             <section id="courses-section" class="output_content courses_wrapper">
                 <h2>Kurser</h2>
-                <h6>Vad jag läst</h6>
+                <h6>Kurser som jag läst</h6>
                 <div class="flip-card_wrapper" id="js--courses-output">
 
                 </div>
@@ -65,6 +65,29 @@
                 <div class="webpages-items" id="js--webpages-output">
 
                 </div>
+            </section>
+
+            <section id="contact-section" class="output_content contact_wrapper">
+                <h2>Kontakt</h2>
+                <h6>Kom i kontakt med mig</h6>
+                <form id="js--contact">
+                    <div class="input_wrapper">
+                        <label for="email_name">Ditt namn</label>
+                        <input type="text" id="email_name" placeholder="Vad är ditt namn?" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <label for="email">Din e-postadress</label>
+                        <input type="email" id="email" placeholder="Vad är din e-postadress?" required>
+                    </div>
+                    <div class="input_wrapper">
+                        <label for="msg">Meddelande</label>
+                        <textarea id="msg" placeholder="Vad kan jag hjälpa dig med?" required></textarea>
+                    </div>
+                    <div class="input_wrapper">
+                        <input type="submit" value="Skicka" class="btn btn-transparent">
+                    </div>
+                    <span id="contact-response"></span>
+                </form>
             </section>
 
         </main>

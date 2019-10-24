@@ -31,3 +31,18 @@
 		color: #000;
 	}
 }
+
+#contact-response {
+	margin-top: -.3em;
+	padding: 0 2em;
+	width: max-content;
+}
+
+.succes-msg {
+	color: #052f05;
+	background: #b0e6b0;
+}
+.error-msg {
+	color: #eecbcb;
+	background: #c80000;
+}

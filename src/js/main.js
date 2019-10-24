@@ -3,17 +3,18 @@
 const coursesOutput = document.querySelector('#js--courses-output');
 const worksOutput = document.querySelector('#js--works-output');
 const webpagesOutput = document.querySelector('#js--webpages-output');
+const contactForm = document.querySelector('#js--contact');
 
 const coursesAPI = 'http://localhost/web3_project/server/api/courses/'
 const worksAPI = 'http://localhost/web3_project/server/api/works/';
 const webpagesAPI = 'http://localhost/web3_project/server/api/webpages/';
+const contactURL = 'http://localhost/web3_project/server/admin/mail.php';
 
 
 const  fetchCourses =  ()  => {
     fetch(coursesAPI)
     .then(resp => resp.json())
     .then(data => {
-        console.log('fetched courses',data);
         let courses = data.map((item, index) => {
             return `
             <div class="flip-card">
@@ -59,7 +60,6 @@ const fetchWorks = () => {
     fetch(worksAPI)
     .then(resp => resp.json())
     .then(data => {
-        console.log('fetched works',data);
         let works = data.map((item, index) => {
             return `
             <div class="flip-card">
@@ -108,7 +108,6 @@ const fetchWebpages = () => {
     fetch(webpagesAPI)
     .then(resp => resp.json())
     .then(data => {
-        console.log('fetched webpages',data);
         let webpages = data.map((item, index) => {
             return `
             <div class="webpage-item">
@@ -132,6 +131,44 @@ const fetchWebpages = () => {
 };
 
 
+const sendMail = (event) => {
+    event.preventDefault();
+
+    // Reset the contact-response 
+    document.querySelector('#contact-response').innerHTML = '';
+
+    // Stringify the inputs
+    let jsonStr = JSON.stringify({
+        'email_name': document.querySelector('#email_name').value,
+        'email': document.querySelector('#email').value,
+        'msg': document.querySelector('#msg').value
+    });
+    
+    // Send POST request to mailscript
+    fetch(contactURL, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: jsonStr
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        if (data.email_validation == 'ok') {
+            document.querySelector('#contact-response').classList.add('succes-msg');
+            document.querySelector('#contact-response').innerHTML = data.message;
+        }
+        if (data.email_validation == 'error') {
+            document.querySelector('#contact-response').classList.add('error-msg');
+            document.querySelector('#contact-response').innerHTML = data.message;
+        }
+        contactForm.reset();
+
+    })
+    .catch(error => console.log('error frn fetch',error))
+    
+}
+
 // Call the fetching functions when DOM is finished loading the DOM tree
 window.addEventListener('DOMContentLoaded', () => {   
     fetchCourses();
@@ -139,3 +176,6 @@ window.addEventListener('DOMContentLoaded', () => {
     fetchWebpages();
 });
 
+if (contactForm != null) {
+    contactForm.addEventListener('submit', sendMail);
+}
