@@ -4,6 +4,8 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    background: $primary-bg-color;
+    color: $primary-text-color;
 }
 
 
@@ -12,6 +14,208 @@ header {
     width: 100%;
     flex-direction: row;
     padding: .8em;
-    color: #fff;
+    color: $primary-text-color;
+    justify-content: space-between;
+    background: $primary-bg-color;
+
+    .logo_wrapper a {
+        @extend %link-style;
+        font-size: 1.7em;
+        font-weight: 710;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: row;
+
+        li {
+            margin: 0 .8em;
+            list-style-type: none;  
+
+            a {
+                @extend %link-style;
+                &:hover {
+                    @include link-style--hover($underline: false, $borderbottom: true)
+                }
+            }
+        }
+    }
 }
 
+
+.bg_wrapper {
+	background-image: url('/images/pres-bg.jpg');
+	display: flex;
+	min-height: calc(100vh - 67px);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: 50%;
+}
+
+.presentation {
+	align-self: center;
+	margin: 0 auto;
+	max-width: 60%;
+	font-size: 1.5rem;
+    color: #fff;
+    
+        .presentation-text, .presentation-cta {
+            text-align: center;
+
+            .big-text {
+                font-size: 2rem;
+                color: $blue;
+            }
+        }
+}
+
+.scroll-down-icon {
+	position: absolute;
+	color: #fff;
+	left: 50%;
+	bottom: 8px;
+	font-size: 1.7em;
+    opacity: 0.8;
+    animation-name: bounce;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-delay: 3s;
+}
+
+@keyframes bounce {
+	0% { @include transform(translateY(0));}
+	50% { @include transform(translateY(-10px));}
+}
+
+
+// .output_content {
+//     margin: 3em 0;
+//      h2 {
+//          text-align: center;
+//          text-transform: uppercase;
+
+//          &:after {
+//            content: "";
+//            width: 3.4em;
+//            position: absolute;
+//            bottom: -3.2em;
+//            left: 50%;
+//            @include transform(translateX(-50%));
+//            background-color: $blue;
+//            height: 2px;
+//            display: inline-block;
+//          }
+//      }
+//      h6 {
+//          text-align: center;
+//          text-transform: uppercase;
+//      }
+// }
+
+.output_content {
+    margin: 3em 0;
+    position: relative;
+}
+
+.output_content > h2, .output_content > h6 {
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.output_content > h2:after {
+    content: "";
+    width: 3.4em;
+    position: absolute;
+    // bottom: -3.2em;
+    top: 33px;
+    left: 50%;
+    @include transform(translateX(-50%));
+    background-color: $blue;
+    height: 2px;
+    display: inline-block;
+}
+
+
+
+
+
+.flip-card_wrapper {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	/* padding: 0 4em; */
+	max-width: 1000px;
+	/* width: 100%; */
+	margin: 0 auto;
+}
+
+.flip-card {
+    background-color: transparent;
+    max-width: 300px;
+    width: 29%;
+    height: 300px;
+    perspective: 1000px;
+    margin: 2em auto;
+
+    &:hover .flip-card-inner {
+        cursor: pointer;
+        transform: rotateY(180deg);
+        }
+
+    .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        @include box-shadow(0px 2px 11px 1px rgba(99,94,99,0.7));
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+        }
+
+        .flip-card-front {
+        background-color: #303030;
+        // color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+        }
+        
+        .flip-card-back {
+        background-color: $blue;
+        // color: white;
+        transform: rotateY(180deg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 8px;
+
+            .flip-card-back-item {
+                h6 {
+                    font-size: 1em;
+                    margin-top: -0.5em;
+                }
+                span {
+                    font-size: .8em;
+                }
+
+            }
+        }
+      }
+
+
+  }
+  
+ 
+  
+
+  
+
+  

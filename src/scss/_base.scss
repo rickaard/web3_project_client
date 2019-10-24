@@ -27,7 +27,9 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 
 
 // VARIABLES
-
+$primary-bg-color: #2e2e2e;
+$primary-text-color: #fff;
+$blue: #11bbd6;
 
 // MIXINS
 @mixin box-shadow($prop) {
@@ -40,12 +42,16 @@ font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
     -ms-transform: $prop;
     transform: $prop;
 }
-@mixin link-style--hover($underline: false) {
+@mixin link-style--hover($underline: false, $borderbottom: false) {
     cursor: pointer;
-    color: darken($nav-color, 20%);
+    color: darken($primary-text-color, 20%);
 
     @if $underline {
         text-decoration: underline;
+    }
+    @if $borderbottom {
+        border-bottom: 1px solid $primary-text-color;
+        padding-bottom: 0.3em;
     }
 }
 

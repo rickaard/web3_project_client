@@ -101,13 +101,13 @@ function watchTask() {
     });
     watch('./src',
         series(
-            parallel(copyHTML,copyIMG,sassTask, jsTask),
+            parallel(copyHTML,copyIMG,sassTask,jsTask),
         )
     ).on('change', browserSync.reload);
 }
 
 exports.default = series(
     cleanTask,
-    parallel(copyHTML,copyIMG, jsTask,sassTask),
+    parallel(copyHTML,sassTask,copyIMG,jsTask),
     watchTask
 );

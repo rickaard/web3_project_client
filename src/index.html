@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
     <script src="https://kit.fontawesome.com/4ae3ee0e48.js"></script>
     <title>Rickard Jonsson</title>
 </head>
@@ -12,29 +13,52 @@
     <div class="container">
 
         <header class="header_wrapper">
-            <!-- <div class="logo_wrapper">
+            <div class="logo_wrapper">
                 <a href="#">R</a>
             </div>
             <span id="showMenu" class="showMenu">&#9776;</span>
             <nav class="nav_wrapper">
                 <span class="closeMenu">&times;</span>
                 <ul>
-                    <li><a href="#">School</a></li>
-                    <li><a href="#">Work</a></li>
-                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#courses-section">kurser</a></li>
+                    <li><a href="#works-section">arbete</a></li>
+                    <li><a href="#">portfolio</a></li>
                 </ul>
-            </nav> -->
-        </header> 
-
+            </nav>
+        </header>
+        
         <main class="content_wrapper">
-
-           
-
-            <footer class="footer_wrapper">
-                <section>
-                    <p>Rickard Jonsson</p>
+            <div class="bg_wrapper">
+                <section class="presentation">
+                    <div class="presentation-text">
+                        <p>Hej, mitt namn är <span class="big-text">Rickard Jonsson</span>,</br>
+                        en [blivande] webbutvecklare</br> från Strängnäs.</p>
+                    </div>
+                    <div class="presentation-cta">
+                        <a href="#contact" class="btn btn-transparent btn-blue">Kontakta mig</a>
+                    </div>
                 </section>
-            </footer>
+                <div class="scroll-down-icon">
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+            </div>
+           
+            <section id="courses-section" class="output_content courses_wrapper">
+                <h2>Kurser</h2>
+                <h6>Vad jag läst</h6>
+                <div class="flip-card_wrapper" id="js--courses-output">
+
+                </div>
+            </section>
+
+            <section id="works-section" class="output_content works_wrapper">
+                <h2>Arbete</h2>
+                <h6>Mina tidigare jobb</h6>
+                <div class="flip-card_wrapper" id="js--works-output">
+                    
+                </div>
+            </section>
+
 
         </main>
     </div>

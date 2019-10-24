@@ -1,2 +1,29 @@
 // Components: anything reusable such as buttons, navbars, cards etc.
 
+.closeMenu, .showMenu {
+	cursor: pointer;
+	display: none;
+	font-size: 2.5em;
+}
+
+.btn {
+	display: inline-block;
+	padding: 0.2em 1.3em;
+	text-decoration: none;
+	color: inherit;
+	border: 1px solid;
+	margin: 1.6em 0;
+}
+
+.btn-transparent {
+	background-color: transparent;
+}
+
+.btn-blue {
+	border-color: $blue;
+	&:hover {
+		cursor: pointer;
+		background-color: $blue;
+		color: #000;
+	}
+}
