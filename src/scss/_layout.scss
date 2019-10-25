@@ -193,6 +193,7 @@ header {
     justify-content: center;
     max-width: 1000px;
     margin: 3em auto;
+    padding: 0 1em;
 }
   
  
@@ -205,12 +206,14 @@ header {
 	justify-content: space-between;
     .webpage-image {
         max-width: 450px;
+        width: 48%;
         img {
             width: 100%;
         }
     }
     .webpage-info {
         max-width: 450px;
+        width: 48%;
         .webpage-links {
             display: flex;
             flex-direction: row;
@@ -250,5 +253,36 @@ header {
             min-height: 140px;
             padding: 0.9em 0.3em;
         }
+    }
+}
+
+
+@media screen and (max-width: 800px) {
+    .webpage-item, .webpage-item:nth-child(even) {
+        flex-direction: column;
+        align-items: center;
+        .webpage-image, .webpage-info {
+            width: 100%;
+        }
+    }
+    .flip-card {
+        width: 41%;
+    }
+    .contact_wrapper  {
+        width: 90%;
+        form .input_wrapper {
+            width: 100%;
+        }
+    }
+}
+@media screen and (max-width: 500px) {
+    .flip-card {
+        font-size: .8em;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .flip-card {
+        width: 80%;
     }
 }

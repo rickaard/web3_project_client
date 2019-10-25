@@ -4,6 +4,10 @@ const coursesOutput = document.querySelector('#js--courses-output');
 const worksOutput = document.querySelector('#js--works-output');
 const webpagesOutput = document.querySelector('#js--webpages-output');
 const contactForm = document.querySelector('#js--contact');
+const navEl = document.querySelector('.nav_wrapper');
+const showMenuBtn = document.querySelector('#showMenu');
+const closeMenuBtn = document.querySelector('.closeMenu');
+const menuLinks = document.querySelectorAll('.menu-link');
 
 const coursesAPI = 'http://localhost/web3_project/server/api/courses/'
 const worksAPI = 'http://localhost/web3_project/server/api/works/';
@@ -176,6 +180,29 @@ window.addEventListener('DOMContentLoaded', () => {
     fetchWebpages();
 });
 
+// Call sendmail function when submitting the form
 if (contactForm != null) {
     contactForm.addEventListener('submit', sendMail);
+}
+
+//
+if (showMenuBtn != null) {
+    showMenuBtn.addEventListener('click', () => {
+        navEl.style.display = 'block';
+    })
+}
+if (closeMenuBtn != null) {
+    closeMenuBtn.addEventListener('click', () => {
+        console.log('close klick');
+        
+        navEl.style.display = 'none';
+    })
+}
+
+if (menuLinks != null) {
+    menuLinks.forEach(element => {
+        element.addEventListener('click', () => {
+            navEl.style.display = 'none';
+        })
+    })
 }

@@ -8,7 +8,7 @@
 
 .btn {
 	display: inline-block;
-	padding: 0.2em 1.3em;
+	padding: 0.2em .8em;
 	text-decoration: none;
 	color: inherit;
 	border: 1px solid;
@@ -45,4 +45,69 @@
 .error-msg {
 	color: #eecbcb;
 	background: #c80000;
+}
+
+
+
+@media screen and (max-width: 800px) {
+	.showMenu,
+	.closeMenu {
+    display: block;
+	}
+	.closeMenu {
+		position: absolute;
+		top: 20px;
+		right: 45px;
+		font-size: 60px;
+	}
+
+	.nav_wrapper { 
+		display: none;
+		height: 100vh;
+		width: 100%;
+		position: fixed; 
+		z-index: 1; 
+		left: 0;
+		top: 0;
+		background-color: rgb(0,0,0);
+		background-color: rgba(0,0,0, 0.9); 
+		overflow-x: hidden; 
+		overflow-y: hidden; 
+		transition: 0.5s;
+		.show {
+			display: flex;
+			animation: appear 0.2s linear;
+		}
+		ul {
+			position: relative;
+			top: 25%; 
+			width: 100%; 
+			text-align: center; 
+			flex-direction: column;
+			justify-content: flex-start;
+			li {
+				margin: 1.2em auto;
+				font-size: 1.8em;
+				a {
+					font-size: 2.2em;
+					margin: 20px auto;
+					&:hover {
+						color: darken(#FFF, 20%);
+						border: none;
+					}
+				}
+			}
+		} 
+	}
+
+
+
+	@keyframes appear {
+		from {
+			width: 0;
+		}
+		to {
+			width: 100%;
+		}
+	}
 }
